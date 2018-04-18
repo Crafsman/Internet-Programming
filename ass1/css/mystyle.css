@@ -141,4 +141,10 @@ body {
     padding: 20px;
 }
 
-
+/* Add Button*/
+.add-button {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;
+}
