@@ -144,7 +144,24 @@ body {
 /* Add Button*/
 .add-button {
     position: absolute;
-    bottom: 8px;
-    right: 16px;
-    font-size: 18px;
+    bottom: 25px;
+    right: 25px;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+.add-button:hover {
+    background-color: #3e8e41;
+}
+.add-button:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }

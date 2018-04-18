@@ -1,4 +1,8 @@
 <?php
-echo "This is bottom-right.";
+
+session_start();
+
+echo $_SESSION["currentID"];
+
 
 ?>
