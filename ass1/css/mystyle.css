@@ -114,6 +114,12 @@ body {
         width: 100%;
         height: auto;
     }
+    .row {
+        flex-direction: column-reverse;
+      }
+    .col-25 {
+        margin-bottom: 20px;
+     }
 }
 /**************** Responsive Mega Menu End ****************************/
 
@@ -122,8 +128,11 @@ body {
 
 /* Column container */
 .row {
+    display: -ms-flexbox; /* IE10 */
     display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
+    margin: 0 -16px;
 }
 
 /* Create two unequal columns that sits next to each other */
@@ -164,4 +173,35 @@ body {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}
+
+.linkbtn a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+}
+
+/**************** Responsive bottom-right Start ****************************/
+.container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+
+  .col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+  }
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+.container a{
+   color: #2196F3;
 }
