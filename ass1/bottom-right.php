@@ -14,9 +14,16 @@ echo $_SESSION["currentID"];
 <body>
 <?php
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\" />";
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />";
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bottom-right.css\" />";
 
 ?>
+<button>Default Button</button>
+<a href="#" class="button">Link Button</a>
+<button class="button">Button</button>
+<input type="button" class="button" value="Input Button">
+
+<hr>
+
 <div class="row">
 
 <div class="col-25">
