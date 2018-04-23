@@ -2,7 +2,7 @@
 session_start();
 
 if ($_REQUEST["clear"] == 1) {
-  unset ($_SESSION['products']);
+  unset($_SESSION['products']);
   unset($_SESSION["currentProduct"]);
 }
 if(isset($_SESSION["currentProduct"])){
@@ -27,11 +27,10 @@ if(isset($_SESSION["currentProduct"])){
 <body>
 
 
-<div class="linkbtn">
-	<a href="bottom-right.php?clear=1"   target="bottom-right" type="button" >
-	Clear
-	</a>
-</div>
+
+
+<a href="bottom-right.php?clear=1"   target="bottom-right" class="button" style="float:right">CLEAR</a>
+<button class="button">CHECKOUT</button>
 
 
 
