@@ -19,20 +19,28 @@ if(isset($_SESSION["currentProduct"])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <?php 
+    echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\" />";
+   
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bottom-right.css\" />";
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />";
+
     ?>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
 
-
+<div id="info-banner" style="display:none" class="alert alert-info">
+<strong>Info!</strong> No items! 
+<br>Click 'CHECKOUT' button to hide this info.
+</div>
 
 <a href="bottom-right.php?clear=1"   target="bottom-right" class="button button_red" style="float:right">CLEAR</a>
-<button class="button">CHECKOUT</button>
-
-
+<button class="button" id="checkout-btn">CHECKOUT</button>
 
 <hr>
 
@@ -40,8 +48,7 @@ if(isset($_SESSION["currentProduct"])){
 
 <div class="col-25" >
   <div class="container">
-    <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i><b><?php echo count($_SESSION["products"]);?></b></span></h4>
-  
+    <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i><b id='number-itmes'><?php echo count($_SESSION["products"]);?></b></span></h4>
   
   <?php 
     foreach($_SESSION["products"] as $product){ ?>
@@ -62,5 +69,27 @@ if(isset($_SESSION["currentProduct"])){
 </div>
 </div>
 
+
+<script>
+
+	document.getElementById("checkout-btn").onclick=checkout;
+
+function checkout() {	
+  //check out total count. If total count is 0, show info banner, otherwise target to right-top ifram
+  var number = document.getElementById("number-itmes").innerHTML;
+  if (number == 0) 
+  {
+    //show
+    var popup = document.getElementById("info-banner");
+    popup.classList.toggle("show");
+    
+  } else {
+    
+  }
+}
+
+
+
+</script>
 </body>
 </html>
