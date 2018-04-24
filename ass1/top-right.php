@@ -18,7 +18,7 @@ session_start();
 
 <?php
 
-
+ echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />"; 
 
 	if (isset($_REQUEST['data'])) {
 		// If receive products ID then, retrive this ID in database
@@ -39,24 +39,32 @@ session_start();
 		if ($num_rows > 0 ) {
 			
 			if ( $a_row = mysqli_fetch_array($result))
-			{	
-				print "<br>";		
-				
-				echo $a_row[product_id]."<br>";
-				echo $a_row[product_name]."<br>";
-				echo $a_row[unit_price]."<br>";
-				echo $a_row[unit_quantity]."<br>";
-				echo $a_row[in_stock]."<br>";				
-				
-				
-				$_SESSION["currentProduct"] = $a_row;
-		
+			{										
+				// talbe 
+				echo "<table id='customers'>";
+				echo "<tr>\n";
+				echo "<th>product_id</th>";
+				echo "<th>product_name</th>";
+				echo "<th>unit_price</th>";
+				echo "<th>unit_quantity</th>";
+				echo "<th>in_stock</th>";
+				echo "</tr>";
+
+				echo "<tr>\n";
+				echo "<td>$a_row[product_id]</td>";
+				echo "<td>$a_row[product_name]</td>";
+				echo "<td>$a_row[unit_price]</td>";
+				echo "<td>$a_row[unit_quantity]</td>";
+				echo "<td>$a_row[in_stock]</td>";
+				echo "</tr>";
+
+				echo "</table>";
+
+				$_SESSION["currentProduct"] = $a_row;		
 				
 			}
 		}
-		mysqli_close($link);
-	
-	
+		mysqli_close($link);	
 	
 	} else {
 		echo "No data sent to this page.";
@@ -65,6 +73,7 @@ session_start();
 
 ?>
 
+
 <div class="linkbtn">
 	<a href="bottom-right.php"  id="addbtn" target="bottom-right" type="button" class="add-button">
 	ADD
@@ -72,8 +81,7 @@ session_start();
 </div>
 
 
-<p id="demo"></p>
-<p id="demo1"></p>
+<!-- <p id="demo"></p>
 <script>
 	var counter = 0;
 	document.getElementById("addbtn").onclick=myFunction;
@@ -81,9 +89,8 @@ session_start();
 	function myFunction() {	
 		counter+=1;
 		document.getElementById("demo").innerHTML = counter; 
-
 	}
-</script>
+</script> -->
 
 
 </body>

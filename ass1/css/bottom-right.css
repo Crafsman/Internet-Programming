@@ -115,3 +115,5 @@ span.price {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.button_red {background-color: #f44336;} /* Red */ 
