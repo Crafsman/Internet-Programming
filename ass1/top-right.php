@@ -10,17 +10,17 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<?php echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>"; ?>
 	<?php echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />"; ?>
+	<?php echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/checkoutform.css\" />"; ?>
+	
 </head>
 <body>
 
-
-
 <?php
 
- echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />"; 
-
-	if (isset($_REQUEST['data'])) {
+	if (isset($_REQUEST['data'])) 
+	{
 		// If receive products ID then, retrive this ID in database
 		$ID = $_REQUEST['data'];
 	
@@ -61,37 +61,26 @@ session_start();
 				echo "</table>";
 
 				$_SESSION["currentProduct"] = $a_row;		
-				
+				echo '<div class="linkbtn">
+						<a href="bottom-right.php"  id="addbtn" target="bottom-right" type="button" class="add-button">
+						ADD
+						</a>
+					  </div>';
+
 			}
 		}
 		mysqli_close($link);	
 	
-	} else {
-		echo "No data sent to this page.";
+	} elseif(isset($_SESSION['showCheckout']) && ($_SESSION['showCheckout'] == 1) &&(count($_SESSION["products"])) )
+	{
+		require('checkoutform.php');
+	}else
+	{
+	echo "Please select products on the left menus, and add to the shopping cart";
 	}
 
 
 ?>
-
-
-<div class="linkbtn">
-	<a href="bottom-right.php"  id="addbtn" target="bottom-right" type="button" class="add-button">
-	ADD
-	</a>
-</div>
-
-
-<!-- <p id="demo"></p>
-<script>
-	var counter = 0;
-	document.getElementById("addbtn").onclick=myFunction;
-
-	function myFunction() {	
-		counter+=1;
-		document.getElementById("demo").innerHTML = counter; 
-	}
-</script> -->
-
 
 </body>
 </html>

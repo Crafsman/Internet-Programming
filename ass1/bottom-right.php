@@ -4,6 +4,7 @@ session_start();
 if ($_REQUEST["clear"] == 1) {
   unset($_SESSION['products']);
   unset($_SESSION["currentProduct"]);
+  unset($_SESSION['showCheckout']);
 }
 if(isset($_SESSION["currentProduct"])){
   $_SESSION["products"][] = $_SESSION["currentProduct"];
@@ -21,31 +22,26 @@ if(isset($_SESSION["currentProduct"])){
     <?php 
     echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\" />";
-   
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bottom-right.css\" />";
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />";
-
     ?>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
-
+<p id="demo"></p>
 <div id="info-banner" style="display:none" class="alert alert-info">
-<strong>Info!</strong> No items! 
-<br>Click 'CHECKOUT' button to hide this info.
+  <strong>Info!</strong> No items! 
+  <br>Click 'CHECKOUT' button to hide this info.
 </div>
 
-<a href="bottom-right.php?clear=1"   target="bottom-right" class="button button_red" style="float:right">CLEAR</a>
-<button class="button" id="checkout-btn">CHECKOUT</button>
-
+<a href="bottom-right.php?clear=1" target="bottom-right" class="button button_red" style="float:right">CLEAR</a>
+<a href="top-right.php" target="top-right" class="button" id="checkout-btn">CHECKOUT</a>
 <hr>
 
 <div class="row">
-
 <div class="col-25" >
   <div class="container">
     <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i><b id='number-itmes'><?php echo count($_SESSION["products"]);?></b></span></h4>
@@ -82,14 +78,19 @@ function checkout() {
     //show
     var popup = document.getElementById("info-banner");
     popup.classList.toggle("show");
+    <?php 
+    $_SESSION['showCheckout'] = 0;
+    unset($_SESSION['showCheckout']);
+    ?>
+    
     
   } else {
-    
+    <?php 
+    $_SESSION['showCheckout'] = 1;
+    ?>
+
   }
 }
-
-
-
 </script>
 </body>
 </html>
