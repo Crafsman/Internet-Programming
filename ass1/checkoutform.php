@@ -53,6 +53,14 @@
 
 <script type="text/javascript">
 
+//validate 
+// function validate()
+// {
+//   document.getElementById("validate_email_message").innerHTML = "Paragraph changed.";
+
+// return true;   
+// }
+
 
 
 $(document).ready(function(){

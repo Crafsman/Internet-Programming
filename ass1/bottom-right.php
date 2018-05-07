@@ -31,7 +31,6 @@ if(isset($_SESSION["currentProduct"])){
 </head>
 <body>
 
-<p id="demo"></p>
 <div id="info-banner" style="display:none" class="alert alert-info">
   <strong>Info!</strong> No items! 
   <br>Click 'CHECKOUT' button to hide this info.
@@ -48,7 +47,7 @@ if(isset($_SESSION["currentProduct"])){
   
   <?php 
     foreach($_SESSION["products"] as $product){ ?>
-      <p><a href="#"><?php echo $product["product_name"];?></a><span class="price">$<?php echo $product["unit_price"];?></span></p>
+      <p><a href="#"><?php echo $product["product_name"];?></a> * 1<span class="price">$<?php echo $product["unit_price"];?></span></p>
   <?php } ?>
 
     <hr>

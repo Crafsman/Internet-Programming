@@ -19,6 +19,21 @@ session_start();
 
 <?php
 
+	class Product{
+		var $product_id;
+		var $product_name;
+		var $unit_price;
+		var $unit_quantity;
+		var $products_price;
+		function Product($item_name, $item_quantity) {
+			$this->item = $item_name;
+			$this->quantity = $item_quantity;
+		}
+		function product_price(){
+			return $products_price * $unit_quantity;
+		}
+	}
+
 	if (isset($_REQUEST['data'])) 
 	{
 		// If receive products ID then, retrive this ID in database
@@ -60,7 +75,23 @@ session_start();
 
 				echo "</table>";
 
-				$_SESSION["currentProduct"] = $a_row;		
+				$_SESSION["currentProduct"] = $a_row;
+
+				//echo '<p id="demo"></p>';
+				// Input number 
+				echo '
+				<div>
+				<form action="bottom-right.php" method="get" target="bottom-right" onsubmit="return validate_quantity()">
+					Quantity (between 1 and 20):
+					<input type="number" id="quantity" name="quantity" min="1" value="1">
+					<input type="submit" value="ADD">
+				 </form>
+				 </div>';
+
+				 
+
+
+				// ADD button		
 				echo '<div class="linkbtn">
 						<a href="bottom-right.php"  id="addbtn" target="bottom-right" type="button" class="add-button">
 						ADD
@@ -82,6 +113,24 @@ session_start();
 
 ?>
 
+
+<script>
+	function validate_quantity(){
+		var quantity = document.getElementById("quantity").value;
+		// False
+		if (quantity > 20) {
+			alert("quantity should less than 20");
+    		return false;
+			
+		} else {
+			document.getElementById("demo").innerHTML = quantity;
+			return true;
+		}
+		return true;
+
+	}
+	
+</script>
 </body>
 </html>
 
