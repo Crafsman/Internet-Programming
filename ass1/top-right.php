@@ -19,20 +19,7 @@ session_start();
 
 <?php
 
-	class Product{
-		var $product_id;
-		var $product_name;
-		var $unit_price;
-		var $unit_quantity;
-		var $products_price;
-		function Product($item_name, $item_quantity) {
-			$this->item = $item_name;
-			$this->quantity = $item_quantity;
-		}
-		function product_price(){
-			return $products_price * $unit_quantity;
-		}
-	}
+
 
 	if (isset($_REQUEST['data'])) 
 	{
@@ -123,7 +110,10 @@ session_start();
     		return false;
 			
 		} else {
-			document.getElementById("demo").innerHTML = quantity;
+			//document.getElementById("demo").innerHTML = quantity;
+			// var xmlhttp = new XMLHttpRequest();
+			// xmlhttp.open("GET", "gethint.php?q=" + str, true);
+ 		    // xmlhttp.send();
 			return true;
 		}
 		return true;

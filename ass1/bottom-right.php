@@ -1,14 +1,59 @@
 <?php
+
 session_start();
+
 
 if ($_REQUEST["clear"] == 1) {
   unset($_SESSION['products']);
   unset($_SESSION["currentProduct"]);
   unset($_SESSION['showCheckout']);
+  //unset($_SESSION['items']);
 }
 if(isset($_SESSION["currentProduct"])){
-  $_SESSION["products"][] = $_SESSION["currentProduct"];
-}
+  $number = $_REQUEST["quantity"];
+  for ($i=0; $i < $number ; $i++) { 
+    $_SESSION["products"][] = $_SESSION["currentProduct"];
+  }
+  
+
+  // if (!isset($_SESSION["products"])) {
+  //   // First time 
+  //   $_SESSION["products"][] = $_SESSION["currentProduct"];
+  // }else{
+  //   // Find same product
+  //   foreach ($_SESSION["products"] as $product) {
+  //     if ($product[product_id] == $_SESSION["currentProduct"][product_id]) {
+        
+  //       $product[product_id][quantity] = $_REQUEST["quantity"];
+  //       echo "find it, change quantity is: ".$product[product_id][quantity];
+  //       break;
+  //     }else{
+  //       //not find add new
+  //       echo "add new";
+  //       $_SESSION["products"][] = $_SESSION["currentProduct"];
+  //       break;
+
+  //     }
+      
+  //   }
+
+  // }
+  
+
+
+  } 
+
+  // echo "objects: ".count($_SESSION["items"]);
+  // echo "<br>";
+  // echo "***";
+  // $number = 0;
+  // //Echo total items
+  // foreach ($_SESSION["items"] as $item) {
+  //   $number += $item->$quantity;
+
+  // }
+  // echo $number;
+
 
 ?>
 
