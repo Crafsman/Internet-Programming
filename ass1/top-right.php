@@ -74,22 +74,18 @@ session_start();
 					<input type="submit" value="ADD">
 				 </form>
 				 </div>';
-
-				 
-
-
 				// ADD button		
-				echo '<div class="linkbtn">
-						<a href="bottom-right.php"  id="addbtn" target="bottom-right" type="button" class="add-button">
-						ADD
-						</a>
-					  </div>';
+				// echo '<div class="linkbtn">
+				// 		<a href="bottom-right.php"  id="addbtn" target="bottom-right" type="button" class="add-button">
+				// 		ADD
+				// 		</a>
+				// 	  </div>';
 
 			}
 		}
 		mysqli_close($link);	
 	
-	} elseif(isset($_SESSION['showCheckout']) && ($_SESSION['showCheckout'] == 1) &&(count($_SESSION["products"])) )
+	} elseif(isset($_SESSION['showCheckout']) && ($_SESSION['showCheckout'] == 1) &&(count($_SESSION["itmes"])) )
 	{
 		require('checkoutform.php');
 	}else
@@ -109,13 +105,7 @@ session_start();
 			alert("quantity should less than 20");
     		return false;
 			
-		} else {
-			//document.getElementById("demo").innerHTML = quantity;
-			// var xmlhttp = new XMLHttpRequest();
-			// xmlhttp.open("GET", "gethint.php?q=" + str, true);
- 		    // xmlhttp.send();
-			return true;
-		}
+		} 
 		return true;
 
 	}
