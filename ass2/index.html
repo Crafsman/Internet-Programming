@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/mystyle.css">
+
+</head>
+<body>
+
+
+<div><b>Product List</b></div>
+<div id="demo"></div>
+
+<script>
+
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xhttp.open("GET", "xml/categories.xml", true);
+  xhttp.send();
+
+
+function myFunction(xml) {
+  var i;
+  var categores = [];
+  var data = [];
+  var xmlDoc = xml.responseXML;
+  var ol="<ol class='q'>";
+
+  var x = xmlDoc.getElementsByTagName("Categories");
+
+  // To store categores
+  for (let index = 0; index < x.length; index++) {
+    var category = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
+    categores.push(category);
+
+
+    //description
+    var str = x[index].getElementsByTagName("Description")[0].childNodes[0].nodeValue;
+    var arr = str.split(",");
+
+    var cates = new Object();
+    cates.CategoryName = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
+    cates.Description = arr;
+
+    data.push(cates);
+
+  }
+
+  //Show on the page
+  for (i = 0; i <data.length; i++) { 
+    ol+="<li>"+
+        data[i].CategoryName +
+        "<ol class='n'>";
+
+        for (let j = 0; j < data[i].Description.length; j++) {
+          ol+="<li>"+
+              (data[i].Description)[j] +
+          "</li>";
+          
+        }
+
+
+
+
+        ol += "</ol>" +
+
+      "</li>";
+  }
+
+  ol+="</ol>"
+  document.getElementById("demo").innerHTML = ol;
+
+
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>
