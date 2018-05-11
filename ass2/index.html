@@ -27,7 +27,6 @@ var xhttp = new XMLHttpRequest();
 
 function myFunction(xml) {
   var i;
-  var categores = [];
   var data = [];
   var xmlDoc = xml.responseXML;
   var ol="<ol class='q'>";
@@ -36,10 +35,6 @@ function myFunction(xml) {
 
   // To store categores
   for (let index = 0; index < x.length; index++) {
-    var category = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
-    categores.push(category);
-
-
     //description
     var str = x[index].getElementsByTagName("Description")[0].childNodes[0].nodeValue;
     var arr = str.split(",");
@@ -65,9 +60,6 @@ function myFunction(xml) {
           
         }
 
-
-
-
         ol += "</ol>" +
 
       "</li>";
@@ -75,12 +67,7 @@ function myFunction(xml) {
 
   ol+="</ol>"
   document.getElementById("demo").innerHTML = ol;
-
-
-
 }
-
-
 
 
 </script>
