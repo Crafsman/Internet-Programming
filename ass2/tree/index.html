@@ -12,9 +12,15 @@
 </head>
 <body>
     <p id="demo"></p>
-        <div id="tree1"></div>
+    <div id="tree1"></div>
 
 <script>
+
+    var CategoriesRoot = [];
+    var Categories = new Object();
+
+    var ProductsRoot = [];
+    var Products = new Object();
 
 // Read xml file
 var xhttp = new XMLHttpRequest();
@@ -23,17 +29,56 @@ xhttp.onreadystatechange = function() {
     // Read data from xml and store to js vector
         var data = myFunction(this); 
 
-              //dispaly data on the tree
-              $(function() {
-                $('#tree1').tree({
-                    data: data
-                    
-                });
+        $(function () {
+            $('#tree1').tree({
+                data: data
+
             });
+        });
 }
 };
+
 xhttp.open("GET", "../xml/categories.xml", true);
 xhttp.send();
+
+    function readProducts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // Read data from xml and store to js vector
+                readProductsdata(this);
+
+ 
+            }
+        };
+
+        xhttp.open("GET", "../xml/products.xml", true);
+        xhttp.send();
+    }
+
+    function readProductsdata(xml) {
+        var xmlDoc = xml.responseXML;
+        var x = xmlDoc.getElementsByTagName("Products");
+
+        for (let index = 0; index < x.length; index++) {
+            //Store all categories' elements
+            var ProductID = x[index].getElementsByTagName("ProductID")[0].childNodes[0].nodeValue;
+            var ProductName = x[index].getElementsByTagName("ProductName")[0].childNodes[0].nodeValue;
+            var CategoryID = x[index].getElementsByTagName("CategoryID")[0].childNodes[0].nodeValue;
+            var QuantityPerUnit = x[index].getElementsByTagName("QuantityPerUnit")[0].childNodes[0].nodeValue;
+            var UnitPrice = x[index].getElementsByTagName("UnitPrice")[0].childNodes[0].nodeValue;
+
+            Products.ProductID = ProductID;
+            Products.ProductName = ProductName;
+            Products.CategoryID = CategoryID;
+            Products.QuantityPerUnit = QuantityPerUnit;
+            Products.UnitPrice = UnitPrice;
+
+            ProductsRoot.push(Products);
+        }
+
+    }
+
 
 function myFunction(xml) {
   var data = [];
@@ -57,9 +102,18 @@ function myFunction(xml) {
     var obj = new Object();
     obj.name = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
     obj.children = children;
+    
+      data.push(obj);
 
-    data.push(obj);
+    //Store all categories' elements
+      var CategoryID = x[index].getElementsByTagName("CategoryID")[0].childNodes[0].nodeValue;
+      var CategoryName = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
+      var Description = x[index].getElementsByTagName("Description")[0].childNodes[0].nodeValue;
+      Categories.CategoryID = CategoryID;
+      Categories.CategoryName = CategoryName;
+      Categories.Description = Description;
 
+      CategoriesRoot.push(Categories);
   }
 
   return data;
@@ -79,7 +133,8 @@ function myFunction(xml) {
 
                 } else {
                     //This is parents node, display price and QuantityPerUnit from products.xml
-                    alert(node.name + "This is child node");
+                    clickChildNode(node.name);
+                    //alert(node.name + "This is child node");
                 }
                
             }
@@ -106,26 +161,23 @@ function myFunction(xml) {
         xhttp.send();
     }
 
-    //get description
-    function getDescription(xml, ParentNodeName)
-    {
-      
+    function getDescription(xml, ParentNodeName) {
         var xmlDoc = xml.responseXML;
         var x = xmlDoc.getElementsByTagName("Categories");
         // To store categores
-        for (let index = 0; index < x.length; index++)
-        {
+        for (let index = 0; index < x.length; index++) {
             //description of categories
             var str = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
             if (str == ParentNodeName) {
                 var currentnode = x[index].getElementsByTagName("Description")[0].childNodes[0];
                 var des = "Description: " + currentnode.nodeValue;
-                
+
                 alert(des);
             }
         }
 
     }
+
 
 
 </script>
