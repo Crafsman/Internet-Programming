@@ -69,7 +69,14 @@ function generateData() {
         data.push(obj);
         
     }
-    return data;  
+   // return data;  
+    var level1 = new Object();
+    level1.name = "Product List";
+    level1.children = data;
+    var root = [];
+    root.push(level1);
+    return root;
+
 }
 
     function readProducts() {
@@ -140,17 +147,20 @@ function readCategories(xml) {
             if (event.node) {
                 // node was selected
                 var node = event.node;
-               
+                alert(node.name + node.getLevel());
+
                 if (node.getLevel() == 1) {
                     //This is parents node, display descriptions from categories.xml
                     //clickParentNode(node.name);
                     //alert(node.name + "This is parent node");
                     //alert(node.name + node.getLevel());
 
-                } else {
+                } else if(node.getLevel() == 2) {
                     //This is parents node, display price and QuantityPerUnit from products.xml
-                    clickChildNode(node.name);
+                    //clickChildNode(node.name);
                     //alert(node.name + "This is child node");
+                } else{
+                    //
                 }
                
             }
