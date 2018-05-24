@@ -25,7 +25,7 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     // Read data from xml and store to js vector
-        myFunction(this); 
+        readCategories(this); 
         var data = generateData();
 
         $(function () {
@@ -48,8 +48,7 @@ function generateData() {
     var data = [];
     for (let i = 0; i < CategoriesRoot.length; i++) {
         var obj = new Object();
-        var children = [];
-      
+        var children = [];     
         //childen
         for (let j = 0; j < ProductsRoot.length; j++) {
             var child = new Object();
@@ -68,14 +67,11 @@ function generateData() {
         obj.children = children;
 
         data.push(obj);
-
         
     }
-    return data;
-
-
-    
+    return data;  
 }
+
     function readProducts() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -115,30 +111,13 @@ function generateData() {
     }
 
 
-function myFunction(xml) {
-  var data = [];
+function readCategories(xml) {
+
   var xmlDoc = xml.responseXML;
   var x = xmlDoc.getElementsByTagName("Categories");
 
   // To store categores
   for (let index = 0; index < x.length; index++) {
-
-    //description of categories
-    var str = x[index].getElementsByTagName("Description")[0].childNodes[0].nodeValue;
-    var arr = str.split(",");
-    var children = [];
-    for (let j = 0; j < arr.length; j++) {
-        var child = {};
-        child.name =  arr[j];
-        children.push(child);
-             
-    }
-
-    var obj = new Object();
-    obj.name = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
-    obj.children = children;
-    
-      data.push(obj);
 
     //Store all categories' elements
       var CategoryID = x[index].getElementsByTagName("CategoryID")[0].childNodes[0].nodeValue;
@@ -152,7 +131,6 @@ function myFunction(xml) {
       CategoriesRoot.push(Categories);
   }
 
-  return data;
 
 }
 
@@ -162,10 +140,12 @@ function myFunction(xml) {
             if (event.node) {
                 // node was selected
                 var node = event.node;
-                if (node.children.length > 0) {
+               
+                if (node.getLevel() == 1) {
                     //This is parents node, display descriptions from categories.xml
-                    clickParentNode(node.name);
+                    //clickParentNode(node.name);
                     //alert(node.name + "This is parent node");
+                    //alert(node.name + node.getLevel());
 
                 } else {
                     //This is parents node, display price and QuantityPerUnit from products.xml
