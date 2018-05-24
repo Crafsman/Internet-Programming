@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="jqtree.css">
     <script src="jquery.min.js"></script>
     <script src="tree.jquery.js"></script>
@@ -16,38 +17,71 @@
 
 <script>
 
-    var CategoriesRoot = [];
-    var Categories = new Object();
-
+    var CategoriesRoot = []; 
     var ProductsRoot = [];
-    var Products = new Object();
-
+    readProducts();
 // Read xml file
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     // Read data from xml and store to js vector
-        var data = myFunction(this); 
+        myFunction(this); 
+        var data = generateData();
 
         $(function () {
             $('#tree1').tree({
-                data: data
+                data: data,
+                closedIcon: $('<i class="fas fa-arrow-circle-right"></i>'),
+                openedIcon: $('<i class="fas fa-arrow-circle-down"></i>')
 
             });
         });
+
+
 }
 };
 
 xhttp.open("GET", "../xml/categories.xml", true);
 xhttp.send();
 
+function generateData() {
+    var data = [];
+    for (let i = 0; i < CategoriesRoot.length; i++) {
+        var obj = new Object();
+        var children = [];
+      
+        //childen
+        for (let j = 0; j < ProductsRoot.length; j++) {
+            var child = new Object();
+            var currentIID = CategoriesRoot[i].CategoryID;
+            var currentJID = ProductsRoot[j].CategoryID;
+            //child.name = ProductsRoot[j].
+            if(currentIID == currentJID){
+                child.name = ProductsRoot[j].ProductName;
+                children.push(child);
+
+            }
+                      
+        }
+                //name
+        obj.name = CategoriesRoot[i].CategoryName;
+        obj.children = children;
+
+        data.push(obj);
+
+        
+    }
+    return data;
+
+
+    
+}
     function readProducts() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 // Read data from xml and store to js vector
                 readProductsdata(this);
-
  
             }
         };
@@ -68,6 +102,7 @@ xhttp.send();
             var QuantityPerUnit = x[index].getElementsByTagName("QuantityPerUnit")[0].childNodes[0].nodeValue;
             var UnitPrice = x[index].getElementsByTagName("UnitPrice")[0].childNodes[0].nodeValue;
 
+            var Products = new Object();
             Products.ProductID = ProductID;
             Products.ProductName = ProductName;
             Products.CategoryID = CategoryID;
@@ -109,6 +144,7 @@ function myFunction(xml) {
       var CategoryID = x[index].getElementsByTagName("CategoryID")[0].childNodes[0].nodeValue;
       var CategoryName = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
       var Description = x[index].getElementsByTagName("Description")[0].childNodes[0].nodeValue;
+      var Categories = new Object();
       Categories.CategoryID = CategoryID;
       Categories.CategoryName = CategoryName;
       Categories.Description = Description;
