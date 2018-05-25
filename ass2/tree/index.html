@@ -147,7 +147,6 @@ function readCategories(xml) {
             if (event.node) {
                 // node was selected
                 var node = event.node;
-                alert(node.name + node.getLevel());
 
                 if (node.getLevel() == 1) {
                     //This is parents node, display descriptions from categories.xml
@@ -156,11 +155,35 @@ function readCategories(xml) {
                     //alert(node.name + node.getLevel());
 
                 } else if(node.getLevel() == 2) {
-                    //This is parents node, display price and QuantityPerUnit from products.xml
-                    //clickChildNode(node.name);
-                    //alert(node.name + "This is child node");
+                    //This is parents node,  display description
+                    var name = node.name;
+                    var description = "";
+                    for (let i = 0; i < CategoriesRoot.length; i++) {
+                        if (name == CategoriesRoot[i].CategoryName) {
+                            description = CategoriesRoot[i].Description;
+                            break;
+                        }
+                       
+                        
+                    }
+                    alert(node.name +": " +description);
                 } else{
-                    //
+                    //display price and QuantityPerUnit from products.xml
+                    var name = node.name;
+                    var UnitPrice = "";
+                    var QuantityPerUnit = "";
+                    for (let i = 0; i < ProductsRoot.length; i++) {
+                        if (name == ProductsRoot[i].ProductName) {
+                            UnitPrice = ProductsRoot[i].UnitPrice;
+                            QuantityPerUnit = ProductsRoot[i].QuantityPerUnit;
+                            break;
+                        }
+                        
+                    }
+
+                    alert("UnitPrice: " + UnitPrice + "\n" + "QuantityPerUnit: " + QuantityPerUnit);
+
+
                 }
                
             }
