@@ -10,23 +10,68 @@
 <body>
 
 <p id="details"></p>
+<button id="btn" onclick="btnClick()">Button</button>
 <div><b>Product List</b></div>
 <div id="demo"></div>
 
 <script>
 
-var xhttp = new XMLHttpRequest();
+    var CategoriesRoot = []; 
+    var ProductsRoot = [];
+    readProducts();
+    var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      readCategories(this);
+
       myFunction(this);
     }
   };
+  
+
   xhttp.open("GET", "xml/categories.xml", true);
   xhttp.send();
 
+  function readProducts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // Read data from xml and store to js vector
+                readProductsdata(this);
+ 
+            }
+        };
+
+        xhttp.open("GET", "xml/products.xml", true);
+        xhttp.send();
+    }
+
+    function readProductsdata(xml) {
+        var xmlDoc = xml.responseXML;
+        var x = xmlDoc.getElementsByTagName("Products");
+
+        for (let index = 0; index < x.length; index++) {
+            //Store all categories' elements
+            var ProductID = x[index].getElementsByTagName("ProductID")[0].childNodes[0].nodeValue;
+            var ProductName = x[index].getElementsByTagName("ProductName")[0].childNodes[0].nodeValue;
+            var CategoryID = x[index].getElementsByTagName("CategoryID")[0].childNodes[0].nodeValue;
+            var QuantityPerUnit = x[index].getElementsByTagName("QuantityPerUnit")[0].childNodes[0].nodeValue;
+            var UnitPrice = x[index].getElementsByTagName("UnitPrice")[0].childNodes[0].nodeValue;
+
+            var Products = new Object();
+            Products.ProductID = ProductID;
+            Products.ProductName = ProductName;
+            Products.CategoryID = CategoryID;
+            Products.QuantityPerUnit = QuantityPerUnit;
+            Products.UnitPrice = UnitPrice;
+
+            ProductsRoot.push(Products);
+        }
+
+    }
 
 function myFunction(xml) {
-  var i;
+
   var data = [];
   var xmlDoc = xml.responseXML;
   var ol="<ol class='q'>";
@@ -48,15 +93,23 @@ function myFunction(xml) {
   }
 
   //Show on the page
-  for (i = 0; i <data.length; i++) { 
-    ol+="<li>"+
-        data[i].CategoryName +
-        "<ol class='n'>";
+  for (let i = 0; i <CategoriesRoot.length; i++) { 
+    //ol+="<li  onclick='btnClick(this)'><a href='#'>"+
+      ol+='<li name="'+CategoriesRoot[i].CategoryName+'" onclick="btnClick(this)"><a href="#">'+
+      CategoriesRoot[i].CategoryName +
+        "</a><ol class='n'>";
 
-        for (let j = 0; j < data[i].Description.length; j++) {
-          ol+="<li>"+
-              (data[i].Description)[j] +
+        for (let j = 0; j < ProductsRoot.length; j++) {
+          var currentIID = CategoriesRoot[i].CategoryID;
+          var currentJID = ProductsRoot[j].CategoryID;
+          if(currentIID == currentJID){
+            ol+="<li>"+
+              ProductsRoot[j].ProductName +
           "</li>";
+            
+         
+          }
+
           
         }
 
@@ -70,6 +123,37 @@ function myFunction(xml) {
 }
 
 
+
+function readCategories(xml) {
+
+  var xmlDoc = xml.responseXML;
+  var x = xmlDoc.getElementsByTagName("Categories");
+
+  // To store categores
+  for (let index = 0; index < x.length; index++) {
+
+    //Store all categories' elements
+      var CategoryID = x[index].getElementsByTagName("CategoryID")[0].childNodes[0].nodeValue;
+      var CategoryName = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
+      var Description = x[index].getElementsByTagName("Description")[0].childNodes[0].nodeValue;
+      var Categories = new Object();
+      Categories.CategoryID = CategoryID;
+      Categories.CategoryName = CategoryName;
+      Categories.Description = Description;
+
+      CategoriesRoot.push(Categories);
+  }
+
+}
+
+function btnClick(x) {
+  
+  document.getElementById("details").innerHTML = x.innerText;
+}
+
+function assignNames(){
+  deocument.getElementsByTagName();
+}
 </script>
 
 </body>

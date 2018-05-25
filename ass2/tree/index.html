@@ -149,10 +149,7 @@ function readCategories(xml) {
                 var node = event.node;
 
                 if (node.getLevel() == 1) {
-                    //This is parents node, display descriptions from categories.xml
-                    //clickParentNode(node.name);
-                    //alert(node.name + "This is parent node");
-                    //alert(node.name + node.getLevel());
+                    //Root node
 
                 } else if(node.getLevel() == 2) {
                     //This is parents node,  display description
@@ -196,36 +193,6 @@ function readCategories(xml) {
     );
 
 
-    function clickParentNode(nodeName) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                // Read data from xml and store to js vector
-                getDescription(this, nodeName);
-
-
-            }
-        };
-        xhttp.open("GET", "../xml/categories.xml", true);
-        xhttp.send();
-    }
-
-    function getDescription(xml, ParentNodeName) {
-        var xmlDoc = xml.responseXML;
-        var x = xmlDoc.getElementsByTagName("Categories");
-        // To store categores
-        for (let index = 0; index < x.length; index++) {
-            //description of categories
-            var str = x[index].getElementsByTagName("CategoryName")[0].childNodes[0].nodeValue;
-            if (str == ParentNodeName) {
-                var currentnode = x[index].getElementsByTagName("Description")[0].childNodes[0];
-                var des = "Description: " + currentnode.nodeValue;
-
-                alert(des);
-            }
-        }
-
-    }
 
 
 
