@@ -10,7 +10,7 @@
 <body>
 
 <p id="details"></p>
-<button id="btn" onclick="btnClick()">Button</button>
+
 <div><b>Product List</b></div>
 <div id="demo"></div>
 
@@ -94,8 +94,8 @@ function myFunction(xml) {
 
   //Show on the page
   for (let i = 0; i <CategoriesRoot.length; i++) { 
-    //ol+="<li  onclick='btnClick(this)'><a href='#'>"+
-      ol+='<li name="'+CategoriesRoot[i].CategoryName+'" onclick="btnClick(this)"><a href="#">'+
+   
+      ol+='<li name="'+CategoriesRoot[i].CategoryName+'" onclick="onParentNode(this)"><a href="#">'+
       CategoriesRoot[i].CategoryName +
         "</a><ol class='n'>";
 
@@ -103,14 +103,12 @@ function myFunction(xml) {
           var currentIID = CategoriesRoot[i].CategoryID;
           var currentJID = ProductsRoot[j].CategoryID;
           if(currentIID == currentJID){
-            ol+="<li>"+
+            ol+='<li name="'+ProductsRoot[j].ProductName+'" onclick="onChildNode(this)"><a href="#">'+
               ProductsRoot[j].ProductName +
-          "</li>";
+          "</a></li>";
             
          
-          }
-
-          
+          }          
         }
 
         ol += "</ol>" +
@@ -146,11 +144,50 @@ function readCategories(xml) {
 
 }
 
-function btnClick(x) {
+var isChildNode = false;
+var description = "";
+function onParentNode(x) {
+
+  if(!isChildNode){  
+    var name = x.getAttribute("name");  
+    for (let i = 0; i < CategoriesRoot.length; i++) {
+      if (name == CategoriesRoot[i].CategoryName) {
+          description += "<b>Description: </b>";
+          description += CategoriesRoot[i].Description;
+          break;
+      }    
+      
+  }
+  }
   
-  document.getElementById("details").innerHTML = x.innerText;
+  document.getElementById("details").innerHTML = description;
+  description = "";
+  isChildNode = false;
 }
 
+function onChildNode(x){
+  description = "";
+  //x.getAttribute("name");
+  if (x.parentNode.nodeType == 1) {
+   //child node
+  var name = x.getAttribute("name");
+  var UnitPrice = "";
+  var QuantityPerUnit = "";
+  for (let i = 0; i < ProductsRoot.length; i++) {
+      if (name == ProductsRoot[i].ProductName) {
+          UnitPrice = ProductsRoot[i].UnitPrice;
+          QuantityPerUnit = ProductsRoot[i].QuantityPerUnit;
+          break;
+      }
+      
+  }
+  description += "<b>UnitPrice: </b>" + UnitPrice + "<br>" + "<b>QuantityPerUnit: </b>" + QuantityPerUnit
+
+
+  }
+  
+  isChildNode = true;
+}
 function assignNames(){
   deocument.getElementsByTagName();
 }
