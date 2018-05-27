@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" href="jqtree.css">
     <script src="jquery.min.js"></script>
     <script src="tree.jquery.js"></script>
 
 </head>
 <body>
-    <p id="demo"></p>
+
     <div id="tree1"></div>
 
 <script>
+
 
     var CategoriesRoot = []; 
     var ProductsRoot = [];
@@ -31,8 +32,6 @@ xhttp.onreadystatechange = function() {
         $(function () {
             $('#tree1').tree({
                 data: data,
-                closedIcon: $('<i class="fas fa-arrow-circle-right"></i>'),
-                openedIcon: $('<i class="fas fa-arrow-circle-down"></i>')
 
             });
         });
@@ -163,7 +162,8 @@ function readCategories(xml) {
                        
                         
                     }
-                    alert(node.name +": " +description);
+                    alert( "Description: " +description);
+
                 } else{
                     //display price and QuantityPerUnit from products.xml
                     var name = node.name;
@@ -180,7 +180,6 @@ function readCategories(xml) {
 
                     alert("UnitPrice: " + UnitPrice + "\n" + "QuantityPerUnit: " + QuantityPerUnit);
 
-
                 }
                
             }
@@ -191,9 +190,6 @@ function readCategories(xml) {
             }
         }
     );
-
-
-
 
 
 </script>
