@@ -10,7 +10,7 @@ body {
 .header {
     padding: 15px;
     text-align: center;
-    background: #1abc9c;
+    background: #fa9b0d;
     color: white;
 }
 
@@ -161,16 +161,16 @@ body {
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #fa9b0d;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
 }
 .add-button:hover {
-    background-color: #3e8e41;
+    background-color:  #fa9b0d;
 }
 .add-button:active{
-    background-color: #3e8e41;
+    background-color:  #fa9b0d;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
@@ -226,7 +226,7 @@ span.price {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #fa9b0d;
     color: white;
 }
 

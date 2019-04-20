@@ -2,20 +2,13 @@
 
 session_start();
 
-
 if ($_REQUEST["clear"] == 1) {
   unset($_SESSION["currentProduct"]);
   unset($_SESSION['showCheckout']);
   unset($_SESSION['itmes']);
 }
 if(isset($_SESSION["currentProduct"])){
-  // $number = $_REQUEST["quantity"];
-  // for ($i=0; $i < $number ; $i++) { 
-  //   $_SESSION["products"][] = $_SESSION["currentProduct"];
-  // }
 
- 
-  ////////////////////////////////////////
   if (!isset($_SESSION["itmes"])) {
     $id = $_SESSION["currentProduct"][product_id];
     $_SESSION["itmes"][$id][product_id] = $_SESSION["currentProduct"][product_id];
@@ -33,8 +26,7 @@ if(isset($_SESSION["currentProduct"])){
           //Update quntity
           $_SESSION["itmes"][$serchid][quantity] = $_REQUEST["quantity"];
           $t = $_SESSION["itmes"][$serchid][quantity];
-          //not refresh current i
-         // echo "find it quantity is :".$t."<br>";
+
           $find = 1;
           break;
         }
@@ -75,8 +67,8 @@ if(isset($_SESSION["currentProduct"])){
     <?php 
     echo "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\" />";
-    echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bottom-right.css\" />";
-    echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />";
+    echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/bottom-right.css\" />";
+    echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/mystyle.css\" />";
     ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -85,8 +77,8 @@ if(isset($_SESSION["currentProduct"])){
 <body>
 
 <div id="info-banner" style="display:none" class="alert alert-info">
-  <strong>Info!</strong> No items! 
-  <br>Click 'CHECKOUT' button to hide this info.
+  <strong>Note:</strong> No items! 
+  <br>Click 'CHECKOUT' button to hide this information.
 </div>
 
 <a href="bottom-right.php?clear=1" target="bottom-right" class="button button_red" style="float:right">CLEAR</a>
@@ -117,11 +109,8 @@ if(isset($_SESSION["currentProduct"])){
 </div>
 </div>
 
-
 <script>
-
 	document.getElementById("checkout-btn").onclick=checkout;
-
 function checkout() {	
   //check out total count. If total count is 0, show info banner, otherwise target to right-top ifram
   var number = document.getElementById("number-itmes").innerHTML;

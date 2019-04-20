@@ -11,15 +11,13 @@ session_start();
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<?php echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>"; ?>
-	<?php echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/mystyle.css\" />"; ?>
-	<?php echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/checkoutform.css\" />"; ?>
+	<?php echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/mystyle.css\" />"; ?>
+	<?php echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/checkoutform.css\" />"; ?>
 	
 </head>
 <body>
 
 <?php
-
-
 
 	if (isset($_REQUEST['data'])) 
 	{
@@ -63,23 +61,17 @@ session_start();
 				echo "</table>";
 
 				$_SESSION["currentProduct"] = $a_row;
-
-				//echo '<p id="demo"></p>';
-				// Input number 
-				echo '
+?>
+				
 				<div>
 				<form action="bottom-right.php" method="get" target="bottom-right" onsubmit="return validate_quantity()">
 					Quantity (between 1 and 20):
 					<input type="number" id="quantity" name="quantity" min="1" value="1">
-					<input type="submit" value="ADD">
+					<input type="submit"  value="ADD">
 				 </form>
-				 </div>';
-				// ADD button		
-				// echo '<div class="linkbtn">
-				// 		<a href="bottom-right.php"  id="addbtn" target="bottom-right" type="button" class="add-button">
-				// 		ADD
-				// 		</a>
-				// 	  </div>';
+				 </div>
+<?php
+				 
 
 			}
 		}

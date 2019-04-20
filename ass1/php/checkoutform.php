@@ -70,8 +70,6 @@ function validateEmail(email) {
       $result.hide();
 
     if (validateEmail(email)) {
-      // $result.text(email + " is valid :)");
-      // $result.css("color", "green");
       $result.hide();
     } else {
       $result.show();
@@ -82,5 +80,4 @@ function validateEmail(email) {
     });
 });
 
-</script>
 </script>
