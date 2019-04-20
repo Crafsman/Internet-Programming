@@ -7,15 +7,17 @@ if ($_REQUEST["clear"] == 1) {
   unset($_SESSION['showCheckout']);
   unset($_SESSION['itmes']);
 }
-if(isset($_SESSION["currentProduct"])){
+if(isset($_SESSION["currentProduct"]) && $_REQUEST["quantity"] > 0){
 
-  if (!isset($_SESSION["itmes"])) {
-    $id = $_SESSION["currentProduct"][product_id];
-    $_SESSION["itmes"][$id][product_id] = $_SESSION["currentProduct"][product_id];
-    $_SESSION["itmes"][$id][product_name] = $_SESSION["currentProduct"][product_name];
-    $_SESSION["itmes"][$id][unit_price] = $_SESSION["currentProduct"][unit_price];
-    $_SESSION["itmes"][$id][unit_quantity] = $_SESSION["currentProduct"][unit_quantity];
-    $_SESSION["itmes"][$id][quantity] = $_REQUEST["quantity"];
+  if (!isset($_SESSION["itmes"])) {  
+ 
+      $id = $_SESSION["currentProduct"][product_id];
+      $_SESSION["itmes"][$id][product_id] = $_SESSION["currentProduct"][product_id];
+      $_SESSION["itmes"][$id][product_name] = $_SESSION["currentProduct"][product_name];
+      $_SESSION["itmes"][$id][unit_price] = $_SESSION["currentProduct"][unit_price];
+      $_SESSION["itmes"][$id][unit_quantity] = $_SESSION["currentProduct"][unit_quantity];
+      $_SESSION["itmes"][$id][quantity] = $_REQUEST["quantity"];
+
   }else
   {
     $serchid = $_SESSION["currentProduct"][product_id];
@@ -40,7 +42,7 @@ if(isset($_SESSION["currentProduct"])){
         $_SESSION["itmes"][$id][unit_price] = $_SESSION["currentProduct"][unit_price];
         $_SESSION["itmes"][$id][unit_quantity] = $_SESSION["currentProduct"][unit_quantity];
         $_SESSION["itmes"][$id][quantity] = $_REQUEST["quantity"];
-        //echo "new id is:".$id."<br>";
+       // echo "new id is:".$id."<br>";
       }
 
       $number = 0;
@@ -82,7 +84,7 @@ if(isset($_SESSION["currentProduct"])){
 </div>
 
 <a href="bottom-right.php?clear=1" target="bottom-right" class="button button_red" style="float:right">CLEAR</a>
-<a href="top-right.php" target="top-right" class="button" id="checkout-btn">CHECKOUT</a>
+<a href="top-right.php?showcheckoutForm=1" target="top-right" class="button" id="checkout-btn">CHECKOUT</a>
 <hr>
 
 <div class="row">
@@ -110,28 +112,21 @@ if(isset($_SESSION["currentProduct"])){
 </div>
 
 <script>
-	document.getElementById("checkout-btn").onclick=checkout;
-function checkout() {	
-  //check out total count. If total count is 0, show info banner, otherwise target to right-top ifram
-  var number = document.getElementById("number-itmes").innerHTML;
-  if (number == 0) 
-  {
-    //show
-    var popup = document.getElementById("info-banner");
-    popup.classList.toggle("show");
-    <?php 
-    $_SESSION['showCheckout'] = 0;
-    unset($_SESSION['showCheckout']);
-    ?>
-    
-    
-  } else {
-    <?php 
-    $_SESSION['showCheckout'] = 1;
-    ?>
+  document.getElementById("checkout-btn").onclick=checkout;
+  function checkout() {	
+    //check out total count. If total count is 0, show info banner, otherwise target to right-top ifram
+    var number = document.getElementById("number-itmes").innerHTML;
+    if (number == 0) 
+    {
+      //show
+      var popup = document.getElementById("info-banner");
+      popup.classList.toggle("show");
 
+            
+    } else {
+
+    }
   }
-}
 </script>
 </body>
 </html>

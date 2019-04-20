@@ -61,33 +61,28 @@ session_start();
 				echo "</table>";
 
 				$_SESSION["currentProduct"] = $a_row;
-?>
-				
+
+				echo '
 				<div>
 				<form action="bottom-right.php" method="get" target="bottom-right" onsubmit="return validate_quantity()">
 					Quantity (between 1 and 20):
 					<input type="number" id="quantity" name="quantity" min="1" value="1">
-					<input type="submit"  value="ADD">
+					<input type="submit" value="ADD">
 				 </form>
-				 </div>
-<?php
+				 </div>';
 				 
-
 			}
 		}
 		mysqli_close($link);	
 	
-	} elseif(isset($_SESSION['showCheckout']) && ($_SESSION['showCheckout'] == 1) &&(count($_SESSION["itmes"])) )
+	} 
+	
+	if( $_REQUEST["showcheckoutForm"] == 1 && (count($_SESSION["itmes"]) > 0) )
 	{
 		require('checkoutform.php');
-	}else
-	{
-	echo "Please select products on the left menus, and add to the shopping cart";
 	}
 
-
 ?>
-
 
 <script>
 	function validate_quantity(){
@@ -95,11 +90,9 @@ session_start();
 		// False
 		if (quantity > 20) {
 			alert("quantity should less than 20");
-    		return false;
-			
+    		return false;			
 		} 
 		return true;
-
 	}
 	
 </script>

@@ -17,164 +17,155 @@
 
 <div class="row">
     <div class="side">
-        <h2>Categories</h2>
 
-        <div class="navbar">
-            <div class="dropdown">
-                <button class="dropbtn">
-                    Frozen Food
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <div class="mega-row">
-                        <div class="mega-column">
-                            <h3>Sea Food</h3>
-                            <a href="php/top-right.php?data=1000" target="top-right">Fish Fingers (500g)</a>
-                            <a href="php/top-right.php?data=1001" target="top-right">Fish Fingers (1000g)</a>
-                            <a href="php/top-right.php?data=1003" target="top-right">Shelled Prawns</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Milk Products</h3>
-                            <a href="php/top-right.php?data=1004" target="top-right">Tub Ice Cream (1 litre)</a>
-                            <a href="php/top-right.php?data=1005" target="top-right">Tub Ice Cream (2 litre)</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Others</h3>
-                            <a href="php/top-right.php?data=10002" target="top-right">Hamurger Patties</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Fresh Food-->
-            <div class="dropdown">
-                <button class="dropbtn">
-                    Fresh Food
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <div class="mega-row">
-                        <div class="mega-column">
-                            <h3>Fruits</h3>
-                            <a href="php/top-right.php?data=3003" target="top-right">Navel Oranges</a>
-                            <a href="php/top-right.php?data=3004" target="top-right">Bananas</a>
-                            <a href="php/top-right.php?data=3006" target="top-right">Grapes</a>
-                            <a href="php/top-right.php?data=3007" target="top-right">Apples</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Fruits</h3>
-                            <a href="php/top-right.php?data=3005" target="top-right">Peaches</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Cheese</h3>
-                            <a href="php/top-right.php?data=3000" target="top-right">Cheddar Cheese (500g)</a>
-                            <a href="php/top-right.php?data=3001" target="top-right">Cheddar Cheese (1000g)</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Meat</h3>
-                            <a href="php/top-right.php?data=3002" target="top-right">T'Bone Steak</a>
-                        </div>
+        <img id="default" src="images/default.PNG" usemap="#image-map">
+        <map name="image-map">
+            <area onclick="myFunction()" onmouseover="mouseOver(this)" onmouseout="mouseLeave(title)" target="_self" alt="" title="FrozenFood" href="" coords="7,162,101,209" shape="rect">
+            <area onclick="myFunction()" onmouseover="mouseOver(this)" onmouseout="mouseLeave(title)" target="_self" alt="" title="FreshFood" href="" coords="210,210,116,161" shape="rect">
+            <area onclick="myFunction()" onmouseover="mouseOver(this)" onmouseout="mouseLeave(title)" target="_self" alt="" title="Beverages" href="" coords="319,208,227,161" shape="rect">
+            <area onclick="myFunction()" onmouseover="mouseOver(this)" onmouseout="mouseLeave(title)" target="_self" alt="" title="HomeHealth" href="" coords="429,209,335,162" shape="rect">
+            <area onclick="myFunction()" onmouseover="mouseOver(this)" onmouseout="mouseLeave(title)" target="_self" alt="" title="PetFood" href="" coords="537,210,443,160" shape="rect">
+        </map>
+        <br/>
 
-                    </div>
-                </div>
-            </div>
-            <!--Beverages-->
-            <div class="dropdown">
-                <button class="dropbtn">
-                    Beverages
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <div class="mega-row">
-                        <div class="mega-column">
-                            <h3>Coffee</h3>
-                            <a href="php/top-right.php?data=4003" target="top-right">200g</a>
-                            <a href="php/top-right.php?data=4004" target="top-right">500g</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Earl Grey Tea Bags</h3>
-                            <a href="php/top-right.php?data=4000" target="top-right">Pack 25</a>
-                            <a href="php/top-right.php?data=4001" target="top-right">Pack 100</a>
-                            <a href="php/top-right.php?data=4002" target="top-right">Pack 200</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Chocolate Bar</h3>
-                            <a href="php/top-right.php?data=4005" target="top-right">Chocolate Bar</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--Home Health-->
-            <div class="dropdown">
-                <button class="dropbtn">
-                    Home Health
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <div class="mega-row">
-                        <div class="mega-column">
-                            <h3>Bath Soap</h3>
-                            <a href="php/top-right.php?data=2002" target="top-right">Bath Soap</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Panadol</h3>
-                            <a href="php/top-right.php?data=2000" target="top-right">Pack 24</a>
-                            <a href="php/top-right.php?data=2001" target="top-right">Bottle 50</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Washing Powder</h3>
-                            <a href="php/top-right.php?data=2005" target="top-right">Washing Powder</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Garbage Bags</h3>
-                            <a href="php/top-right.php?data=2003" target="top-right">small (pack 10)</a>
-                            <a href="php/top-right.php?data=2004" target="top-right">large (pack 50)</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Laundry Bleach</h3>
-                            <a href="php/top-right.php?data=2006" target="top-right">Laundry Bleach</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Pet Food-->
-            <div class="dropdown">
-                <button class="dropbtn">
-                    Pet Food
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <div class="mega-row">
-                        <div class="mega-column">
-                            <h3>Dry Dog Food</h3>
-                            <a href="php/top-right.php?data=5001" target="top-right">small (1kg)</a>
-                            <a href="php/top-right.php?data=5000" target="top-right">large (5kg)</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Bird Food</h3>
-                            <a href="php/top-right.php?data=5002" target="top-right">Bird Food</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Cat Food</h3>
-                            <a href="php/top-right.php?data=5003" target="top-right">Cat Food</a>
-                        </div>
-                        <div class="mega-column">
-                            <h3>Fish Food</h3>
-                            <a href="php/top-right.php?data=5004" target="top-right">Fish Food</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div id="FrozenFoodImage" style="display:none">
+            <img src="images/FrozenFood.PNG" usemap="#FrozenFood"  >
+            <map name="FrozenFood">
+                <area target="top-right" alt="Fish Fingers (500g)" title="Fish Fingers (500g)" href="php/top-right.php?data=1000" coords="70,285,163,330" shape="rect">
+                <area target="top-right" alt="Fish Fingers (1000g)" title="Fish Fingers (1000g)" href="php/top-right.php?data=1001" coords="178,284,271,330" shape="rect">
+                <area target="top-right" alt="Shelled Prawns" title="Shelled Prawns" href="php/top-right.php?data=1003" coords="224,150,320,196" shape="rect">
+                <area target="top-right" alt="Tub Ice Cream (1 litre)" title="Tub Ice Cream (1 litre)" href="php/top-right.php?data=1004" coords="292,283,385,329" shape="rect">
+                <area target="top-right" alt="Tub Ice Cream (2 litre)" title="Tub Ice Cream (2 litre)" href="php/top-right.php?data=1005" coords="399,282,493,331" shape="rect">
+                <area target="top-right" alt="Hamurger Patties" title="Hamurger Patties" href="php/top-right.php?data=1002" coords="6,148,101,197" shape="rect">
+            </map>
         </div>
+   
+        <div id="FreshFoodImage" style="display:none">
+            <img src="images/FreshFood.PNG" usemap="#FreshFood">
+            <map name="FreshFood">
+                <area target="top-right" alt="T'Bone Steak" title="T'Bone Steak" href="php/top-right.php?data=3002" coords="6,150,79,197" shape="rect">
+                <area target="top-right" alt="Cheddar Cheese (500g)" title="Cheddar Cheese (500g)" href="php/top-right.php?data=3000" coords="40,286,135,332" shape="rect">
+                <area target="top-right" alt="Cheddar Cheese (1000g)" title="Cheddar Cheese (1000g)" href="php/top-right.php?data=3001" coords="148,285,241,332" shape="rect">
+                <area target="top-right" alt="Navel Oranges" title="Navel Oranges" href="php/top-right.php?data=3003" coords="163,150,238,196" shape="rect">
+                <area target="top-right" alt="Bananas" title="Bananas" href="php/top-right.php?data=3004" coords="245,149,318,196" shape="rect">
+                <area target="top-right" alt="Grapes" title="Grapes" href="php/top-right.php?data=3006" coords="324,150,397,196" shape="rect">
+                <area target="top-right" alt="Apples" title="Apples" href="php/top-right.php?data=3007" coords="404,149,478,195" shape="rect">
+                <area target="top-right" alt="Peaches" title="Peaches" href="php/top-right.php?data=3005" coords="483,149,556,196" shape="rect">
+            </map>
+        </div>
+
+        <div id="BeveragesImage" style="display:none">
+            <img src="images/Beverages.PNG" usemap="#Beverages">
+            <map name="Beverages">
+                <area target="top-right" alt="200g" title="200g" href="php/top-right.php?data=4003" coords="25,281,98,325" shape="rect">
+                <area target="top-right" alt="500g" title="500g" href="php/top-right.php?data=4004" coords="106,281,178,325" shape="rect">
+                <area target="top-right" alt="Pack 25" title="Pack 25" href="php/top-right.php?data=4000" coords="186,281,258,326" shape="rect">
+                <area target="top-right" alt="Pack 100" title="Pack 100" href="php/top-right.php?data=4001" coords="265,281,338,325" shape="rect">
+                <area target="top-right" alt="Pack 200" title="Pack 200" href="php/top-right.php?data=4002" coords="343,281,418,325" shape="rect">
+                <area target="top-right" alt="Chocolate Bar" title="Chocolate Bar" href="php/top-right.php?data=4005" coords="453,157,546,205" shape="rect">
+            </map>
+        </div>
+
+
+        <div id="HomeHealthImage" style="display:none">
+            <img src="images/HomeHealth.PNG" usemap="#HomeHealth">   
+            <map name="HomeHealth">
+                <area target="top-right" alt="Bath Soap" title="Bath Soap" href="php/top-right.php?data=2002" coords="10,153,104,198" shape="rect">
+                <area target="top-right" alt="Pack 24" title="Pack 24" href="php/top-right.php?data=2000" coords="73,287,168,334" shape="rect">
+                <area target="top-right" alt="Bottle 50" title="Bottle 50" href="php/top-right.php?data=2001" coords="179,288,276,336" shape="rect">
+                <area target="top-right" alt="Washing Powder" title="Washing Powder" href="php/top-right.php?data=2005" coords="227,151,321,198" shape="rect">
+                <area target="top-right" alt="small (pack 10)" title="small (pack 10)" href="php/top-right.php?data=2003" coords="295,285,389,333" shape="rect">
+                <area target="top-right" alt="large (pack 50)" title="large (pack 50)" href="php/top-right.php?data=2004" coords="403,288,496,333" shape="rect">
+                <area target="top-right" alt="Laundry Bleach" title="Laundry Bleach" href="php/top-right.php?data=2006" coords="446,152,540,198" shape="rect">
+            </map>
+        </div>
+
+        <div id="PetFoodImage" style="display:none">
+            <img src="images/PetFood.PNG" usemap="#PetFood">
+            <map name="PetFood">
+                <area target="top-right" alt="small (1kg)" title="small (1kg)" href="php/top-right.php?data=5001" coords="294,282,387,329" shape="rect">
+                <area target="top-right" alt="large (5kg)" title="large (5kg)" href="php/top-right.php?data=5000" coords="400,282,496,329" shape="rect">
+                <area target="top-right" alt="Bird Food" title="Bird Food" href="php/top-right.php?data=5002" coords="117,148,211,194" shape="rect">
+                <area target="top-right" alt="Cat Food" title="Cat Food" href="php/top-right.php?data=5003" coords="226,147,320,194" shape="rect">
+                <area target="top-right" alt="Fish Food" title="Fish Food" href="php/top-right.php?data=5004" coords="445,148,539,195" shape="rect">
+            </map>
+        </div>
+
     </div>
 
     <div class="main">
         <iframe id="iframe1" name="top-right" src="php/top-right.php" frameborder="0" width="100%" height="350px"></iframe>
+        <hr>
         <iframe id="iframe2" name="bottom-right" src="php/bottom-right.php" frameborder="0" width="100%" height="350px"></iframe>
 
     </div>
 </div>
+
+<script>
+    function mouseOver(x) {
+
+        hideAllSubImages();
+
+        var subImageObj;
+        if(x.title == "FrozenFood")
+        {
+            subImageObj = document.getElementById("FrozenFoodImage");
+            subImageObj.style.display = "block";
+
+        }
+        else if(x.title == "FreshFood")
+        {
+            subImageObj = document.getElementById("FreshFoodImage");
+            subImageObj.style.display = "block";
+
+        }
+        else if(x.title == "Beverages")
+        {
+            subImageObj = document.getElementById("BeveragesImage");
+            subImageObj.style.display = "block";
+        }
+        else if(x.title == "HomeHealth")
+        {
+            subImageObj = document.getElementById("HomeHealthImage");
+            subImageObj.style.display = "block";
+        } 
+        else if(x.title == "PetFood")
+        {
+            subImageObj = document.getElementById("PetFoodImage");
+            subImageObj.style.display = "block";
+        }
+
+
+    }
+
+    function hideAllSubImages()
+    {
+        var subImageObj;
+        
+        subImageObj = document.getElementById("FrozenFoodImage");
+        subImageObj.style.display = "none";
+
+        subImageObj = document.getElementById("FreshFoodImage");
+        subImageObj.style.display = "none";
+
+        subImageObj = document.getElementById("BeveragesImage");
+        subImageObj.style.display = "none";
+
+        subImageObj = document.getElementById("HomeHealthImage");
+        subImageObj.style.display = "none";
+
+        subImageObj = document.getElementById("PetFoodImage");
+        subImageObj.style.display = "none";
+    }
+    
+    function mouseLeave(title) {
+       // var x = document.getElementById("subItemsArea").innerHTML = "";
+    }
+
+    function myFunction() {
+    
+    }
+    </script>
 
 </body>
 </html>

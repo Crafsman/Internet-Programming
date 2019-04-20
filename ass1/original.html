@@ -1,0 +1,199 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Crafsman 
+1
+0 2 Crafsman/Internet-Programming
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+Internet-Programming/ass1/index.html
+ Mingqian Yang 1. Change .php file folder. 2. Change css color
+894f6ff 2 hours ago
+181 lines (170 sloc)  8.29 KB
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grocery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+</head>
+<body>
+
+<div class="header">
+  <h1>Grocery</h1>
+</div>
+
+<div class="row">
+    <div class="side">
+        <h2>Categories</h2>
+
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Frozen Food
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="mega-row">
+                        <div class="mega-column">
+                            <h3>Sea Food</h3>
+                            <a href="php/top-right.php?data=1000" target="top-right">Fish Fingers (500g)</a>
+                            <a href="php/top-right.php?data=1001" target="top-right">Fish Fingers (1000g)</a>
+                            <a href="php/top-right.php?data=1003" target="top-right">Shelled Prawns</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Milk Products</h3>
+                            <a href="php/top-right.php?data=1004" target="top-right">Tub Ice Cream (1 litre)</a>
+                            <a href="php/top-right.php?data=1005" target="top-right">Tub Ice Cream (2 litre)</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Others</h3>
+                            <a href="php/top-right.php?data=10002" target="top-right">Hamurger Patties</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Fresh Food-->
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Fresh Food
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="mega-row">
+                        <div class="mega-column">
+                            <h3>Fruits</h3>
+                            <a href="php/top-right.php?data=3003" target="top-right">Navel Oranges</a>
+                            <a href="php/top-right.php?data=3004" target="top-right">Bananas</a>
+                            <a href="php/top-right.php?data=3006" target="top-right">Grapes</a>
+                            <a href="php/top-right.php?data=3007" target="top-right">Apples</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Fruits</h3>
+                            <a href="php/top-right.php?data=3005" target="top-right">Peaches</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Cheese</h3>
+                            <a href="php/top-right.php?data=3000" target="top-right">Cheddar Cheese (500g)</a>
+                            <a href="php/top-right.php?data=3001" target="top-right">Cheddar Cheese (1000g)</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Meat</h3>
+                            <a href="php/top-right.php?data=3002" target="top-right">T'Bone Steak</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--Beverages-->
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Beverages
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="mega-row">
+                        <div class="mega-column">
+                            <h3>Coffee</h3>
+                            <a href="php/top-right.php?data=4003" target="top-right">200g</a>
+                            <a href="php/top-right.php?data=4004" target="top-right">500g</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Earl Grey Tea Bags</h3>
+                            <a href="php/top-right.php?data=4000" target="top-right">Pack 25</a>
+                            <a href="php/top-right.php?data=4001" target="top-right">Pack 100</a>
+                            <a href="php/top-right.php?data=4002" target="top-right">Pack 200</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Chocolate Bar</h3>
+                            <a href="php/top-right.php?data=4005" target="top-right">Chocolate Bar</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--Home Health-->
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Home Health
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="mega-row">
+                        <div class="mega-column">
+                            <h3>Bath Soap</h3>
+                            <a href="php/top-right.php?data=2002" target="top-right">Bath Soap</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Panadol</h3>
+                            <a href="php/top-right.php?data=2000" target="top-right">Pack 24</a>
+                            <a href="php/top-right.php?data=2001" target="top-right">Bottle 50</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Washing Powder</h3>
+                            <a href="php/top-right.php?data=2005" target="top-right">Washing Powder</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Garbage Bags</h3>
+                            <a href="php/top-right.php?data=2003" target="top-right">small (pack 10)</a>
+                            <a href="php/top-right.php?data=2004" target="top-right">large (pack 50)</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Laundry Bleach</h3>
+                            <a href="php/top-right.php?data=2006" target="top-right">Laundry Bleach</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Pet Food-->
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Pet Food
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="mega-row">
+                        <div class="mega-column">
+                            <h3>Dry Dog Food</h3>
+                            <a href="php/top-right.php?data=5001" target="top-right">small (1kg)</a>
+                            <a href="php/top-right.php?data=5000" target="top-right">large (5kg)</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Bird Food</h3>
+                            <a href="php/top-right.php?data=5002" target="top-right">Bird Food</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Cat Food</h3>
+                            <a href="php/top-right.php?data=5003" target="top-right">Cat Food</a>
+                        </div>
+                        <div class="mega-column">
+                            <h3>Fish Food</h3>
+                            <a href="php/top-right.php?data=5004" target="top-right">Fish Food</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main">
+        <iframe id="iframe1" name="top-right" src="php/top-right.php" frameborder="0" width="100%" height="350px"></iframe>
+        <iframe id="iframe2" name="bottom-right" src="php/bottom-right.php" frameborder="0" width="100%" height="350px"></iframe>
+
+    </div>
+</div>
+
+</body>
+</html>
+

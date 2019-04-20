@@ -8,7 +8,6 @@ class Product{
     public $quantity;
     public $product_price;
 
-
     function __construct($product_id, $unit_price, $quantity) {
         $this->$product_id = $product_id;
         $this->$unit_price = $unit_price;
