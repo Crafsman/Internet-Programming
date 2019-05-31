@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+<Car>
+        <ProductID>1</ProductID>
+        <Category>sedan</Category>
+        <Availability>True</Availability>
+        <Brand>BMW</Brand>
+        <Model>320i</Model>
+        <Model_year>2014</Model_year>
+        <Mileage>40,000</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>5</Seats>
+        <Price_per_day>230</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+        <Car>
+        <ProductID>2</ProductID>
+        <Category>sedan</Category>
+        <Availability>True</Availability>
+        <Brand>Toyota</Brand>
+        <Model>Camry</Model>
+        <Model_year>2013</Model_year>
+        <Mileage>20000</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>5</Seats>
+        <Price_per_day>140</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+    <Car>
+        <ProductID>3</ProductID>
+        <Category>SUV</Category>
+        <Availability>True</Availability>
+        <Brand>Jeep</Brand>
+        <Model>Cherokee</Model>
+        <Model_year>2018</Model_year>
+        <Mileage>20,183</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>6</Seats>
+        <Price_per_day>240</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+        <Car>
+        <ProductID>4</ProductID>
+        <Category>SUV</Category>
+        <Availability>False</Availability>
+        <Brand>Holden</Brand>
+        <Model>Captiva</Model>
+        <Model_year>2009</Model_year>
+        <Mileage>151,000</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>4</Seats>
+        <Price_per_day>170</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+    <Car>
+        <ProductID>5</ProductID>
+        <Category>SUV</Category>
+        <Availability>True</Availability>
+        <Brand>Benz</Brand>
+        <Model>GLC</Model>
+        <Model_year>2015</Model_year>
+        <Mileage>604,511</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>5</Seats>
+        <Price_per_day>240</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+    <Car>
+        <ProductID>6</ProductID>
+        <Category>sedWagonan</Category>
+        <Availability>True</Availability>
+        <Brand>Volkswagen</Brand>
+        <Model>Golf</Model>
+        <Model_year>2018</Model_year>
+        <Mileage>103,000</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>4</Seats>
+        <Price_per_day>190</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+        <Car>
+        <ProductID>7</ProductID>
+        <Category>sedan</Category>
+        <Availability>False</Availability>
+        <Brand>Honda</Brand>
+        <Model>Civic</Model>
+        <Model_year>2018</Model_year>
+        <Mileage>21,000</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>4</Seats>
+        <Price_per_day>170</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+    <Car>
+        <ProductID>8</ProductID>
+        <Category>Wagon</Category>
+        <Availability>False</Availability>
+        <Brand>Suzuki</Brand>
+        <Model>Jimny</Model>
+        <Model_year>2019</Model_year>
+        <Mileage>100,600</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>4</Seats>
+        <Price_per_day>150</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+    <Car>
+        <ProductID>9</ProductID>
+        <Category>sedan</Category>
+        <Availability>True</Availability>
+        <Brand>Hyundai</Brand>
+        <Model>Sonata</Model>
+        <Model_year>2015</Model_year>
+        <Mileage>40,463</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>5</Seats>
+        <Price_per_day>130</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+    <Car>
+        <ProductID>10</ProductID>
+        <Category>SUV</Category>
+        <Availability>True</Availability>
+        <Brand>Nissan</Brand>
+        <Model>XTrail</Model>
+        <Model_year>2018</Model_year>
+        <Mileage>75,080</Mileage>
+        <Fuel_type>petrol</Fuel_type>
+        <Seats>5</Seats>
+        <Price_per_day>220</Price_per_day>
+        <Description>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</Description>
+    </Car>
+</Root>
