@@ -22,7 +22,17 @@ $(document).ready(function () {
             alert("No car has been reserved");
             window.location.href = 'index.php';
         } else {
-            document.location.href = "checkout.html";
+            // VAlidate rental days  
+            let jump = true;
+            $("input").each(function (index) {
+                if ($(this).val() <= 0) {
+                    alert("Rental days must greater than 0");
+                    jump = false;
+                }
+            });
+
+            if (jump == true)
+                window.location.href = "checkout.html";
         }
 
 
@@ -58,6 +68,7 @@ function hanle() {
                 tr.append(td);
                 category = $('<input></input>').addClass("input-mini");
                 category.attr('type', "text");
+                category.attr('id', car_array[j].ProductID);
                 category.val("1");
                 td.append(category);
 

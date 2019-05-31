@@ -24,7 +24,7 @@
 	<script src="themes/js/jquery.scrolltotop.js"></script>
 	<script src="themes/js/myjs.js"></script>
 	<script src="themes/js/jquery.redirect.js"></script>
-
+	<script src="themes/js/jquerysession.js"></script>
 </head>
 
 <body>
