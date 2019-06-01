@@ -5,9 +5,6 @@
 	<meta charset="utf-8">
 	<title>Checkout</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
-	<!-- bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="themes/css/bootstrappage.css" rel="stylesheet" />
@@ -39,13 +36,14 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="wrapper" class="container">
 
 		<section class="main-content">
 			<div class="row">
 				<div class="span12">
-					<form action="php/send-email.php" method="post">
 
+					<form action="sendEmail.php?" method="post">
 
 						<div class="col-50">
 							<h3>Contact Details</h3>
@@ -106,13 +104,14 @@
 							<hr style="border: 4px solid #5b9aa0" />
 
 							<!-- Total Price -->
-							<label for="totalPrice"><b>You are required to pay $<span style="color:red" id="money"> </span></b>
+							<label for="totalPrice"><b>You are required to pay $<span name="money" style="color:red" id="money">
+									</span></b>
 							</label>
 
 							<!-- for php -->
-							<input type="text" id="cars" name="cars" class="d-lg-none">
-							<input type="text" id="reservationCarsID" name="reservationCarsID" class="d-lg-none">
-
+							<input hidden id="overallMoney" name="overallMoney">
+							<input hidden id="selectedCarsID" name="selectedCarsID">
+							<input hidden id="products" name="products">
 						</div>
 						<input type="submit" value="Booking" onclick="booking()" class="btn">
 					</form>
@@ -132,6 +131,11 @@
 		$(document).ready(function () {
 
 			$("#money").text(JSON.parse($.session.get("overAllMoney")));
+
+			// Hidden element
+			$("#overallMoney:text").val(JSON.parse($.session.get("overAllMoney")));
+			$("#selectedCarsID:text").val(($.session.get("selectedCars")));
+			$("#products:text").val(($.session.get("products")));
 
 			function validateEmail(email) {
 				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -154,12 +158,11 @@
 			});
 
 
-			function goToFirstPange() {
-
-				window.location.href = "index.html";
-			}
 		});
 
+		function goToFirstPange() {
+			window.location.href = "index.html";
+		}
 
 	</script>
 </body>

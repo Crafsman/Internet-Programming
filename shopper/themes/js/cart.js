@@ -16,6 +16,7 @@ $(document).ready(function () {
     $('#checkout').click(function (e) {
         var overAllMoney = 0;
         let jump = true;
+        var products = [];
         selectedCars = JSON.parse($.session.get("selectedCars"));
         if (selectedCars <= 0) {
             alert("No car has been reserved");
@@ -24,6 +25,7 @@ $(document).ready(function () {
             // VAlidate rental days  
             for (let i = 0; i < selectedCars.length; i++) {
 
+                var product;
                 var id = "#" + selectedCars[i];
                 if ($(id).val() <= 0) {
                     alert("Rental dyas must be greater than 1");
@@ -33,11 +35,18 @@ $(document).ready(function () {
                     for (let j = 0; j < car_array.length; j++) {
                         if (selectedCars[i] == car_array[j].ID) {
                             overAllMoney += $(id).val() * car_array[j].Price_per_day;
+
+                            product = {
+                                id: selectedCars[i],
+                                quantity: $(id).val()
+                            }
+                            products.push(product);
                         }
                     }
                 }
 
                 $.session.set("overAllMoney", JSON.stringify(overAllMoney));
+                $.session.set("products", JSON.stringify(products));
             }
             $.session.set("overAllMoney", JSON.stringify(overAllMoney));
             //console.log(overAllMoney);
