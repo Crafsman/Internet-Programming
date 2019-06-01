@@ -3,8 +3,6 @@ $(document).ready(function () {
     car_array = [];
     selectedCars = JSON.parse($.session.get("selectedCars"));
 
-    // console.log((selectedCars))
-
     $.ajax({
         type: "GET",
         url: "files/cars.xml",
@@ -15,21 +13,34 @@ $(document).ready(function () {
         }
     });
 
-
     $('#checkout').click(function (e) {
+        var overAllMoney = 0;
+        let jump = true;
         selectedCars = JSON.parse($.session.get("selectedCars"));
         if (selectedCars <= 0) {
             alert("No car has been reserved");
             window.location.href = 'index.php';
         } else {
             // VAlidate rental days  
-            let jump = true;
-            $("input").each(function (index) {
-                if ($(this).val() <= 0) {
-                    alert("Rental days must greater than 0");
+            for (let i = 0; i < selectedCars.length; i++) {
+
+                var id = "#" + selectedCars[i];
+                if ($(id).val() <= 0) {
+                    alert("Rental dyas must be greater than 1");
                     jump = false;
                 }
-            });
+                else {
+                    for (let j = 0; j < car_array.length; j++) {
+                        if (selectedCars[i] == car_array[j].ID) {
+                            overAllMoney += $(id).val() * car_array[j].Price_per_day;
+                        }
+                    }
+                }
+
+
+            }
+            $.session.set("overAllMoney", JSON.stringify(overAllMoney));
+            console.log(overAllMoney);
 
             if (jump == true)
                 window.location.href = "checkout.html";
@@ -68,7 +79,7 @@ function hanle() {
                 tr.append(td);
                 category = $('<input></input>').addClass("input-mini");
                 category.attr('type', "text");
-                category.attr('id', car_array[j].ProductID);
+                category.attr('id', car_array[j].ID);
                 category.val("1");
                 td.append(category);
 
@@ -94,7 +105,6 @@ function hanle() {
 }
 
 function deleteCar(event) {
-
     var index = selectedCars.indexOf(event.data.id);
     if (index > -1) {
         selectedCars.splice(index, 1);
