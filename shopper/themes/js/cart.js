@@ -19,7 +19,7 @@ $(document).ready(function () {
         selectedCars = JSON.parse($.session.get("selectedCars"));
         if (selectedCars <= 0) {
             alert("No car has been reserved");
-            window.location.href = 'index.php';
+            window.location.href = 'index.html';
         } else {
             // VAlidate rental days  
             for (let i = 0; i < selectedCars.length; i++) {
@@ -37,10 +37,10 @@ $(document).ready(function () {
                     }
                 }
 
-
+                $.session.set("overAllMoney", JSON.stringify(overAllMoney));
             }
             $.session.set("overAllMoney", JSON.stringify(overAllMoney));
-            console.log(overAllMoney);
+            //console.log(overAllMoney);
 
             if (jump == true)
                 window.location.href = "checkout.html";
