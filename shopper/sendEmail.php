@@ -1,12 +1,14 @@
 
-
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Send Email</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <script src="themes/js/jquery-1.7.2.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="themes/js/superfish.js"></script>
@@ -18,63 +20,55 @@
 <body>
 
 <?php
+require_once 'Zend/Json.php';
 
-print_r($_REQUEST['products'] );
-
-$ids = $_REQUEST['selectedCarsID'];
-$reservationCarsID = explode(",", $ids);
-
+$_SESSION["products"] = Zend_Json::decode( $_REQUEST['products']);
 
 echo "Your order is sent to: <b>".$_REQUEST['email']."</b> Please check it."."<br>";
 
-$msg = "Thanks for renting cars from Hertz_UTS, the total price is:  $".$_REQUEST['overallMoney'];
-$msg .= "<br>";
-$msg .= "<br>";
-$msg .= "Details are as follows:";
-$msg .= "<br>";
-$msg .= "<br>";
+$message = "Thanks for renting cars from Hertz_UTS, the total price is:  $".$_REQUEST['overallMoney'];
+$message .= "<br>";
+$message .= "<br>";
+$message .= "Details are as follows:";
+$message .= "<br><br><br>";
 
-$xmldata = simplexml_load_file('files/cars.xml') or die("Failed to load");
+$carsInXML = simplexml_load_file('files/cars.xml') or die("Failed to load");
 
- for ($i=0; $i <count($reservationCarsID) ; $i++) 
- { 
+for ($i = 0; $i < count($_SESSION["products"]); $i++) {
+    $productID = $_SESSION["products"][$i]['id'];
+    $quantity = $_SESSION["products"][$i]['quantity'];
 
-    foreach($xmldata->children() as $empl)
+    foreach($carsInXML->children() as $empl)
      {  
-        if ($empl->ProductID == $reservationCarsID[$i]) 
+        if ($empl->ProductID == $productID) 
         {
-            $msg .= "---------------------------------------";
-            $msg .= "<br>";
-            $msg .= "Model: ".$empl->Brand."-".$empl->Model."-".$empl->Model_year;
-            $msg .= "<br>";
-            $msg .= "mileage: " .$empl->Mileage;
-            $msg .= "<br>";
-            $msg .= "fuel_type: " .$empl->Fuel_type;
-            $msg .= "<br>";
-            $msg .= "seats: " .$empl->Seats;
-            $msg .= "<br>";
-            $msg .= "price_per_day: " .$empl->Price_per_day;
-            $msg .= "<br>";
-            $msg .= "description: " .$empl->Description;
-            $msg .= "<br>";
+            $message .= "*************************************************************";
+            $message .= "<br>";
+            $message .= "Model: ".$empl->Brand."-".$empl->Model."-".$empl->Model_year;
+            $message .= "<br>";
+            $message .= "mileage: " .$empl->Mileage;
+            $message .= "<br>";
+            $message .= "fuel_type: " .$empl->Fuel_type;
+            $message .= "<br>";
+            $message .= "seats: " .$empl->Seats;
+            $message .= "<br>";
+            $message .= "price_per_day: " .$empl->Price_per_day;
+            $message .= "<br>";
+            $message .= "rent_day: " .$quantity;
+            $message .= "<br>";
+            $message .= "description: " .$empl->Description;
+            $message .= "<br>";
         }          
 
-       }       
-       $msg .= "<br>";
-}   
+       }   
+       $message .= "<br>";  
+}
 
-echo $msg;
-mail($_REQUEST['email'],"purchase invoice",$msg);
-
+ echo $message;
+ mail($_REQUEST['email'],"Hertz-UTS Invoice", $message);
 ?>
 
 </body>
 
-<script>
-               
- console.log(JSON.parse($.session.get("overAllMoney")));
- var selectedCars = JSON.parse($.session.get("products"));
- console.log( selectedCars);
- </script>
 </html>
 
