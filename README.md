@@ -11,4 +11,4 @@ ass2 style1 link: http://www-student.it.uts.edu.au/~mingqyan/ass2/
 
 ass2 style2 link:http://www-student.it.uts.edu.au/~mingqyan/ass2/tree/
 
-shopper link:http://www-student.it.uts.edu.au/~mingqyan/shopper/
+shopper link:http://www-student.it.uts.edu.au/~mingqyan/rentcar/
